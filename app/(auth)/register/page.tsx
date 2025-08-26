@@ -47,7 +47,6 @@ export default function RegisterPage() {
     }
     
     // TODO: Implement actual register logic
-    console.log("Register attempt:", formData);
     
     setTimeout(() => {
       setLoading(false);

@@ -23,13 +23,11 @@ export default function LoginPage() {
     
     try {
       // TODO: Implement actual login logic
-      console.log("Login attempt:", { email, password });
       
       // Simulate login success
       await new Promise(resolve => setTimeout(resolve, 1000));
       router.push("/account");
     } catch (error) {
-      console.error("Login error:", error);
       setError("Eroare la autentificare. Te rugăm să încerci din nou.");
     } finally {
       setLoading(false);

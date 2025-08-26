@@ -87,37 +87,37 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Hero Banner - Fully Responsive */}
-      <section className="bg-primary text-white py-4 sm:py-6 lg:py-12 mb-4 sm:mb-6 lg:mb-8">
+      <section className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-4 sm:py-6 lg:py-12 mb-4 sm:mb-6 lg:mb-8 shadow-2xl">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
           <div className="text-center space-y-2 sm:space-y-4 lg:space-y-6">
-            <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold leading-tight bg-gradient-to-r from-yellow-200 via-white to-pink-200 bg-clip-text text-transparent">
               EdilSperanța
             </h1>
-            <p className="text-xs sm:text-sm lg:text-lg xl:text-xl opacity-90 leading-tight px-1 max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm lg:text-lg xl:text-xl opacity-95 leading-tight px-1 max-w-2xl mx-auto text-blue-50">
               <span className="hidden sm:inline">Casa și construcții - Totul pentru proiectele tale</span>
               <span className="sm:hidden">Casa și construcții</span>
             </p>
             <div className="pt-2 sm:pt-4">
-              <Link href="/products" className="inline-flex items-center justify-center h-8 sm:h-10 lg:h-12 px-4 sm:px-6 lg:px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 font-semibold text-xs sm:text-sm lg:text-base transition-colors">
+              <Link href="/products" className="inline-flex items-center justify-center h-8 sm:h-10 lg:h-12 px-4 sm:px-6 lg:px-8 rounded-md bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-gray-800 font-bold text-xs sm:text-sm lg:text-base transition-all duration-300 transform hover:scale-105 shadow-lg">
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 mr-1 sm:mr-2" />
                 <span className="hidden sm:inline">Vezi catalogul complet</span>
                 <span className="sm:hidden">Catalog</span>
               </Link>
             </div>
             {/* Trust indicators - Responsive */}
-            <div className="flex justify-center gap-3 sm:gap-6 lg:gap-8 text-xs sm:text-sm lg:text-base pt-2 sm:pt-4 opacity-90">
-              <div className="flex items-center gap-1 sm:gap-2">
-                <Truck className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+            <div className="flex justify-center gap-3 sm:gap-6 lg:gap-8 text-xs sm:text-sm lg:text-base pt-2 sm:pt-4 text-blue-100">
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/20 px-2 py-1 rounded-lg hover:bg-white/30 transition-colors">
+                <Truck className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-green-300" />
                 <span>Livrare</span>
               </div>
-              <div className="flex items-center gap-1 sm:gap-2">
-                <Shield className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+              <div className="flex items-center gap-1 sm:gap-2 bg-white/20 px-2 py-1 rounded-lg hover:bg-white/30 transition-colors">
+                <Shield className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-yellow-300" />
                 <span>Garanție</span>
               </div>
-              <div className="hidden sm:flex items-center gap-1 sm:gap-2">
-                <Phone className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+              <div className="hidden sm:flex items-center gap-1 sm:gap-2 bg-white/20 px-2 py-1 rounded-lg hover:bg-white/30 transition-colors">
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-pink-300" />
                 <span>Support 24/7</span>
               </div>
             </div>
@@ -127,17 +127,17 @@ export default function Home() {
 
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 space-y-6 sm:space-y-8 lg:space-y-12">
         {/* Categories Section - Enhanced Design */}
-        <section>
+        <section className="bg-gradient-to-br from-white to-blue-50 p-4 sm:p-6 lg:p-8 rounded-xl shadow-lg border border-blue-100">
           <div className="flex items-start justify-between mb-3 xs:mb-4 sm:mb-8 lg:mb-10">
             <div>
-              <h2 className="text-sm xs:text-base sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mb-1 xs:mb-2">
+              <h2 className="text-sm xs:text-base sm:text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-1 xs:mb-2">
                 Categorii populare
               </h2>
               <p className="text-xs xs:text-sm sm:text-base lg:text-lg text-gray-600 hidden xs:block">
                 Descoperă gama noastră completă de produse
               </p>
             </div>
-            <Link href="/categories" className="inline-flex items-center gap-1 xs:gap-2 text-primary text-xs xs:text-sm sm:text-base lg:text-lg hover:text-primary/80 transition-colors font-medium bg-primary/5 hover:bg-primary/10 px-2 xs:px-3 sm:px-4 py-1 xs:py-1.5 sm:py-2 rounded-md xs:rounded-lg">
+            <Link href="/categories" className="inline-flex items-center gap-1 xs:gap-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white text-xs xs:text-sm sm:text-base lg:text-lg transition-all duration-300 font-bold px-2 xs:px-3 sm:px-4 py-1 xs:py-1.5 sm:py-2 rounded-md xs:rounded-lg shadow-lg transform hover:scale-105">
               <span className="hidden sm:inline">Vezi toate</span>
               <span className="sm:hidden">Vezi</span>
               <ArrowRight className="w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
@@ -177,10 +177,10 @@ export default function Home() {
         </section>
 
         {/* Featured Products - Fully Responsive */}
-        <section>
+        <section className="bg-gradient-to-br from-white to-purple-50 p-4 sm:p-6 lg:p-8 rounded-xl shadow-lg border border-purple-100">
           <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
-            <h2 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-bold">Produse populare</h2>
-            <Link href="/products" className="inline-flex items-center gap-1 sm:gap-2 text-primary text-xs sm:text-sm lg:text-base hover:text-primary/80 transition-colors">
+            <h2 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Produse populare</h2>
+            <Link href="/products" className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-xs sm:text-sm lg:text-base transition-all duration-300 font-bold px-3 py-2 rounded-lg shadow-lg transform hover:scale-105">
               <span className="hidden sm:inline">Vezi toate</span>
               <span className="sm:hidden">Vezi</span>
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
@@ -225,27 +225,27 @@ export default function Home() {
 
         {/* Benefits Section - Fully Responsive */}
         <section className="py-2 sm:py-4 lg:py-6">
-          <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
+          <Card className="bg-gradient-to-r from-green-50 via-blue-50 to-purple-50 border-2 border-green-200 shadow-xl">
             <CardContent className="p-3 sm:p-4 lg:p-6">
-              <h3 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-bold mb-2 sm:mb-4 lg:mb-6">De ce EdilSperanța?</h3>
+              <h3 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-bold mb-2 sm:mb-4 lg:mb-6 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">De ce EdilSperanța?</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4 text-xs sm:text-sm lg:text-base">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Truck className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-primary" />
+                <div className="flex items-center gap-2 sm:gap-3 bg-white/50 p-2 rounded-lg hover:bg-white/70 transition-colors">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                    <Truck className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
                   </div>
-                  <span>Livrare gratuită peste 500 RON</span>
+                  <span className="font-medium text-gray-700">Livrare gratuită peste 500 RON</span>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Shield className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-primary" />
+                <div className="flex items-center gap-2 sm:gap-3 bg-white/50 p-2 rounded-lg hover:bg-white/70 transition-colors">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                    <Shield className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
                   </div>
-                  <span>Garanție extinsă pe toate produsele</span>
+                  <span className="font-medium text-gray-700">Garanție extinsă pe toate produsele</span>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-primary" />
+                <div className="flex items-center gap-2 sm:gap-3 bg-white/50 p-2 rounded-lg hover:bg-white/70 transition-colors">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                    <Phone className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
                   </div>
-                  <span>Support tehnic specializat 24/7</span>
+                  <span className="font-medium text-gray-700">Support tehnic specializat 24/7</span>
                 </div>
               </div>
             </CardContent>

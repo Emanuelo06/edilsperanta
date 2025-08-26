@@ -18,7 +18,16 @@ module.exports = {
     },
     extend: {
       screens: {
-        'xs': '250px',  // Ultra-small breakpoint for 250px+
+        '2xs': '250px',  // Ultra-small for 250px+
+        'xs': '350px',   // Extra-small for 350px+
+        // sm: '640px' (default)
+        // md: '768px' (default)
+        // lg: '1024px' (default)
+        // xl: '1280px' (default)
+        // 2xl: '1536px' (default)
+      },
+      fontSize: {
+        '2xs': ['0.625rem', '0.75rem'],  // 10px with 12px line height
       },
       colors: {
         border: "hsl(var(--border))",

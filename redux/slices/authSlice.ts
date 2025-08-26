@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import {auth} from "@/lib/firebase"
+import {auth, googleProvider, facebookProvider} from "@/lib/firebase"
 import {
    signInWithEmailAndPassword,
    createUserWithEmailAndPassword,
+   signInWithPopup,
    signOut,
 } from "firebase/auth"
-import { Timestamp } from "firebase/firestore"
 import { User } from "@/types/User"
 
 interface AuthState {
@@ -33,7 +33,7 @@ export const registerUser = createAsyncThunk(
             displayName: user.displayName,
             name: user.displayName || "",
             role: "customer" as const,
-            createdAt: Timestamp.now(),
+            createdAt: new Date().toISOString(),
          };
       } catch (error: unknown){
          const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -54,7 +54,49 @@ export const loginUser = createAsyncThunk(
             displayName: user.displayName,
             name: user.displayName || "",
             role: "customer" as const,
-            createdAt: Timestamp.now(),
+            createdAt: new Date().toISOString(),
+         };
+      }catch (error: unknown){
+         const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+         return thunkAPI.rejectWithValue(errorMessage);
+      }
+   }
+);
+
+export const loginWithGoogle = createAsyncThunk(
+   "auth/loginWithGoogle",
+   async(_, thunkAPI) => {
+      try{
+         const userCredential = await signInWithPopup(auth, googleProvider);
+         const user = userCredential.user;
+         return {
+            uid: user.uid,
+            email: user.email || "",
+            displayName: user.displayName,
+            name: user.displayName || "",
+            role: "customer" as const,
+            createdAt: new Date().toISOString(),
+         };
+      }catch (error: unknown){
+         const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+         return thunkAPI.rejectWithValue(errorMessage);
+      }
+   }
+);
+
+export const loginWithFacebook = createAsyncThunk(
+   "auth/loginWithFacebook",
+   async(_, thunkAPI) => {
+      try{
+         const userCredential = await signInWithPopup(auth, facebookProvider);
+         const user = userCredential.user;
+         return {
+            uid: user.uid,
+            email: user.email || "",
+            displayName: user.displayName,
+            name: user.displayName || "",
+            role: "customer" as const,
+            createdAt: new Date().toISOString(),
          };
       }catch (error: unknown){
          const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -73,6 +115,10 @@ const authSlice = createSlice({
    reducers: {
       setUser: (state, action: PayloadAction<AuthState["user"]>) => {
          state.user = action.payload;
+      },
+      clearUser: (state) => {
+         state.user = null;
+         state.error = null;
       },
    },
    extraReducers: (builder) => {
@@ -108,8 +154,36 @@ const authSlice = createSlice({
       state.user = null;
       state.loading = false;
     });
+
+    // Google Login
+    builder.addCase(loginWithGoogle.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(loginWithGoogle.fulfilled, (state, action) => {
+      state.loading = false;
+      state.user = action.payload;
+    });
+    builder.addCase(loginWithGoogle.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+
+    // Facebook Login
+    builder.addCase(loginWithFacebook.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(loginWithFacebook.fulfilled, (state, action) => {
+      state.loading = false;
+      state.user = action.payload;
+    });
+    builder.addCase(loginWithFacebook.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
    },
 })
 
-export const {setUser} = authSlice.actions;
+export const {setUser, clearUser} = authSlice.actions;
 export default authSlice.reducer;

@@ -2,9 +2,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { ReduxProvider } from "@/redux/provider";
+import ConditionalLayout from "@/components/ConditionalLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,11 +21,9 @@ export default function RootLayout({
     <html lang="ro">
       <body className={inter.className + " bg-gray-50 min-h-screen flex flex-col"}>
         <ReduxProvider>
-          <Header />
-          <main className="flex-1 w-full">
+          <ConditionalLayout>
             {children}
-          </main>
-          <Footer />
+          </ConditionalLayout>
         </ReduxProvider>
       </body>
     </html>
